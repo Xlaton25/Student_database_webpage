@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Progress</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Student Progress Portal</h1>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+
+  <div class="landing-page" id="landingPage">
+    <h2>Welcome, <span id="studentName"></span>!</h2>
+    <h3>Exam Marks</h3>
+    <table id="marksTable">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamically add rows for marks using JavaScript -->
+      </tbody>
+    </table>
+
+    <h3>Exam Solutions</h3>
+    <ul id="solutionsList">
+      <!-- Dynamically add solutions using JavaScript -->
+    </ul>
+
+    <button id="logoutButton">Log Out</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
