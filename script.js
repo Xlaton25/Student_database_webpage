@@ -1,12 +1,12 @@
 document.getElementById("loginForm").addEventListener("submit", function(event) {
   event.preventDefault();
-  
+
   // Get the entered username and password
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
-  
+
   // Perform validation (e.g., check against database) and retrieve student data
-  
+
   // Dummy data for demonstration
   var studentData = {
     name: "John Doe",
@@ -21,9 +21,43 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
       "Solution 3"
     ]
   };
-  
+
   // Display the landing page and populate student information
   document.getElementById("studentName").textContent = studentData.name;
-  
+
   var marksTable = document.getElementById("marksTable").getElementsByTagName("tbody")[0];
-  marksTable.innerHTML
+  marksTable.innerHTML = "";
+
+  for (var i = 0; i < studentData.marks.length; i++) {
+    var row = marksTable.insertRow(i);
+    var subjectCell = row.insertCell(0);
+    var marksCell = row.insertCell(1);
+
+    subjectCell.textContent = studentData.marks[i].subject;
+    marksCell.textContent = studentData.marks[i].marks;
+  }
+
+  var solutionsList = document.getElementById("solutionsList");
+  solutionsList.innerHTML = "";
+
+  for (var j = 0; j < studentData.solutions.length; j++) {
+    var listItem = document.createElement("li");
+    listItem.textContent = studentData.solutions[j];
+    solutionsList.appendChild(listItem);
+  }
+
+  // Show the landing page and hide the login page
+  document.getElementById("landingPage").style.display = "block";
+  document.getElementById("loginForm").style.display = "none";
+});
+
+document.getElementById("logoutButton").addEventListener("click", function() {
+  // Clear any stored student data and redirect to login page
+
+  // Hide the landing page and show the login page
+  document.getElementById("landingPage").style.display = "none";
+  document.getElementById("loginForm").style.display = "block";
+});
+
+
+
